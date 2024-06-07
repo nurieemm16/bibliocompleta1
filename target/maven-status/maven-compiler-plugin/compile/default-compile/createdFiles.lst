@@ -1,0 +1,16 @@
+com\mycompany\bibliotecanuriacompleta\LibroController.class
+com\mycompany\bibliotecanuriacompleta\UsuarioController.class
+com\mycompany\bibliotecanuriacompleta\Autor.class
+com\mycompany\bibliotecanuriacompleta\AutorRepository.class
+com\mycompany\bibliotecanuriacompleta\Usuario.class
+com\mycompany\bibliotecanuriacompleta\AutorController.class
+com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestados.class
+com\mycompany\bibliotecanuriacompleta\Bibliotecanuriacompleta.class
+com\mycompany\bibliotecanuriacompleta\Libro.class
+com\mycompany\bibliotecanuriacompleta\LibroRepository.class
+com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestamoAuxiliar.class
+com\mycompany\bibliotecanuriacompleta\UsuarioRepository.class
+com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestadosDTO.class
+com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestadosRepository.class
+com\mycompany\bibliotecanuriacompleta\WebConfig.class
+com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestadosController.class
