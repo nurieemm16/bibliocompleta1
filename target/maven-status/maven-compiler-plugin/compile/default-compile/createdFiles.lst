@@ -13,4 +13,5 @@ com\mycompany\bibliotecanuriacompleta\UsuarioRepository.class
 com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestadosDTO.class
 com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestadosRepository.class
 com\mycompany\bibliotecanuriacompleta\WebConfig.class
+com\mycompany\bibliotecanuriacompleta\WebConfig$1.class
 com\mycompany\bibliotecanuriacompleta\UsuarioLibrosPrestadosController.class

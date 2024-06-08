@@ -2,28 +2,27 @@ package com.mycompany.bibliotecanuriacompleta;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
-
-//@author nuria
-
-/*Entidad UsuarioLibrosPrestamo que tiene una clave primaria compuesta por id_usuario, id_libro. 
-Primero, necesitas definir una clase auxiliar que represente la clave primaria compuesta (UsuarioLibrosPrestamoAuxiliar). 
-Luego, se utiliza @IdClass en la entidad para indicar que esta entidad tiene una clave primaria compuesta definida por esta clase auxiliar.*/
 
 @Entity
 @Table(name = "usuario_librosprestados")
-@IdClass(UsuarioLibrosPrestamoAuxiliar.class) //Indica que esta entidad tiene una clave primaria compuesta y que la clase UsuarioLibrosPrestados define esta clave
+@IdClass(UsuarioLibrosPrestamoAuxiliar.class)
 public class UsuarioLibrosPrestados implements Serializable {
 
-    @Id //Indica que es la PK.
+    @Id
     private Integer id_usuario;
 
-    private String nombre_usuario; //Aquí marcas las otras columnas que quieres en la tabla y que no son PK-FK.
-
-    @Id //Indica que es la PK.
+    private String nombre_usuario;
+    
+    @Id
     private Integer id_libro;
 
-    private String titulo; //Aquí marcas las otras columnas que quieres en la tabla y que no son PK-FK.
+    private String titulo;
+
+    private Date fecha_prestamo;
+    private Date fecha_devolucion;
+    private Integer telefono;
 
     // Constructor por defecto
     public UsuarioLibrosPrestados() {
@@ -46,6 +45,18 @@ public class UsuarioLibrosPrestados implements Serializable {
         return titulo;
     }
 
+    public Date getFecha_prestamo() {
+        return fecha_prestamo;
+    }
+
+    public Date getFecha_devolucion() {
+        return fecha_devolucion;
+    }
+
+    public Integer getTelefono() {
+        return telefono;
+    }
+
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
     }
@@ -60,5 +71,17 @@ public class UsuarioLibrosPrestados implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public void setFecha_prestamo(Date fecha_prestamo) {
+        this.fecha_prestamo = fecha_prestamo;
+    }
+
+    public void setFecha_devolucion(Date fecha_devolucion) {
+        this.fecha_devolucion = fecha_devolucion;
+    }
+
+    public void setTelefono(Integer telefono) {
+        this.telefono = telefono;
     }
 }

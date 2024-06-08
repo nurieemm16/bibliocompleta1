@@ -88,6 +88,10 @@ public class Usuario {
     public void setFecha_baja(Date fecha_baja) {
         this.fecha_baja = fecha_baja;
     }
+
+    Integer getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }

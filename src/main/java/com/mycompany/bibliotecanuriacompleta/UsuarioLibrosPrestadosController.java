@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Date;
 
 /**
  * Controlador para gestionar los préstamos de libros a los usuarios.
@@ -24,12 +25,12 @@ public class UsuarioLibrosPrestadosController {
     private UsuarioLibrosPrestadosRepository usuarioLibrosPrestadosRepository;
 
     @GetMapping
-    public List<UsuarioLibrosPrestados> getAllUsuarios() {
+    public List<UsuarioLibrosPrestados> getAllUsuariosLibrosPrestados() {
         return usuarioLibrosPrestadosRepository.findAll();
     }
     // obtener un préstamo por ID http://localhost:8080/usuarios/prestamos/{id_usuario}/{id_libro}
       @GetMapping("/{id_usuario}/{id_libro}")
-    public ResponseEntity<UsuarioLibrosPrestados> getUsuarioLibrosPrestadosById(@PathVariable int id_usuario, @PathVariable int id_libro) {
+        public ResponseEntity<UsuarioLibrosPrestados> getUsuarioLibrosPrestadosById(@PathVariable int id_usuario, @PathVariable int id_libro) {
         UsuarioLibrosPrestamoAuxiliar key = new UsuarioLibrosPrestamoAuxiliar(id_usuario, id_libro);
         Optional<UsuarioLibrosPrestados> record = usuarioLibrosPrestadosRepository.findById(key);
 
@@ -41,45 +42,72 @@ public class UsuarioLibrosPrestadosController {
     }
  //PRESTAR UN LIBRO:http://localhost:8080/usuarios/prestamos
     @PostMapping
-    public void insertUsuarioLibrosPrestados(@RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
-        Usuario usuario = usuarioRepository.findByNombreUsuario(usuarioLibrosPrestadosDTO.getNombre_usuario());
+ public ResponseEntity<String> insertUsuarioLibrosPrestados(@RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
+        Usuario usuario = usuarioRepository.findByNombreUsuarioAndTelefono(usuarioLibrosPrestadosDTO.getNombre_usuario(), usuarioLibrosPrestadosDTO.getTelefono());
         Libro libro = libroRepository.findByTitulo(usuarioLibrosPrestadosDTO.getTitulo());
 
-        if (usuario != null && libro != null) {
-            usuarioLibrosPrestadosRepository.insertUsuarioLibrosPrestados(usuario.getNombre_usuario(), libro.getTitulo());
+        if (usuario != null && libro != null && libro.getDisponibilidad()) {
+            UsuarioLibrosPrestados usuarioLibrosPrestados = new UsuarioLibrosPrestados();
+            usuarioLibrosPrestados.setId_usuario(usuario.getId_usuario());
+            usuarioLibrosPrestados.setNombre_usuario(usuario.getNombre_usuario());
+            usuarioLibrosPrestados.setId_libro(libro.getId_libro());
+            usuarioLibrosPrestados.setTitulo(libro.getTitulo());
+            usuarioLibrosPrestados.setFecha_prestamo(usuarioLibrosPrestadosDTO.getFecha_prestamo());
+            usuarioLibrosPrestados.setTelefono(usuarioLibrosPrestadosDTO.getTelefono());
+
+            usuarioLibrosPrestadosRepository.save(usuarioLibrosPrestados);
+
+            // Actualizar la disponibilidad del libro
+            libro.setDisponibilidad(false);
+            libroRepository.save(libro);
+
+            return ResponseEntity.ok("Has cogido prestado el libro correctamente. ¡Que disfrutes de la lectura!");
         } else {
-            throw new RuntimeException("Usuario o libro no encontrado");
+            return ResponseEntity.status(404).body("Tu nombre de Usuario, el título del libro o tu teléfono no son correctos. Te rogamos que introduzcas los datos de nuevo");
         }
     }
-// actualizar un préstamo http://localhost:8080/usuarios/prestamos/{id_usuario}/{id_libro}
+/* actualizar un préstamo http://localhost:8080/usuarios/prestamos/{id_usuario}/{id_libro}
     @PutMapping("/{id_usuario}/{id_libro}")
-    public ResponseEntity<UsuarioLibrosPrestados> updateUsuarioLibrosPrestados(@PathVariable int id_usuario, @PathVariable int id_libro, @RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
+     public ResponseEntity<UsuarioLibrosPrestados> deleteUsuarioLibrosPrestados(@PathVariable int id_usuario, @PathVariable int id_libro, @RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
         UsuarioLibrosPrestamoAuxiliar key = new UsuarioLibrosPrestamoAuxiliar(id_usuario, id_libro);
         Optional<UsuarioLibrosPrestados> existingRecord = usuarioLibrosPrestadosRepository.findById(key);
 
         if (existingRecord.isPresent()) {
             UsuarioLibrosPrestados record = existingRecord.get();
-            record.setNombre_usuario(usuarioLibrosPrestadosDTO.getNombre_usuario());
-            record.setTitulo(usuarioLibrosPrestadosDTO.getTitulo());
+            record.setFecha_devolucion(usuarioLibrosPrestadosDTO.getFecha_devolucion());
             usuarioLibrosPrestadosRepository.save(record);
             return ResponseEntity.ok(record);
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
+    }*/
 
-  //eliminar un préstamo:http://localhost:8080/usuarios/prestamos/{id_usuario}/{id_libro}
+  //eliminar un préstamo:http://localhost:8080/usuarios/prestamos/devolver
 
-    @DeleteMapping("/{id_usuario}/{id_libro}")
-    public ResponseEntity<Void> deleteUsuarioLibrosPrestados(@PathVariable int id_usuario, @PathVariable int id_libro) {
-        UsuarioLibrosPrestamoAuxiliar key = new UsuarioLibrosPrestamoAuxiliar(id_usuario, id_libro);
-        Optional<UsuarioLibrosPrestados> existingRecord = usuarioLibrosPrestadosRepository.findById(key);
+ @DeleteMapping("/devolver")
+public ResponseEntity<String> deleteUsuarioLibrosPrestados(@RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
+    Usuario usuario = usuarioRepository.findByNombreUsuarioAndTelefono(usuarioLibrosPrestadosDTO.getNombre_usuario(), usuarioLibrosPrestadosDTO.getTelefono());
+    Libro libro = libroRepository.findByTitulo(usuarioLibrosPrestadosDTO.getTitulo());
 
-        if (existingRecord.isPresent()) {
-            usuarioLibrosPrestadosRepository.delete(existingRecord.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
+    if (usuario != null && libro != null) {
+        try {
+            usuarioLibrosPrestadosRepository.deleteUsuarioLibrosPrestados(
+                    usuarioLibrosPrestadosDTO.getNombre_usuario(),
+                    usuarioLibrosPrestadosDTO.getTitulo(),
+                    usuarioLibrosPrestadosDTO.getTelefono(),
+                    usuarioLibrosPrestadosDTO.getFecha_devolucion()
+            );
+
+            // Actualizar la disponibilidad del libro
+            libro.setDisponibilidad(true);
+            libroRepository.save(libro);
+
+            return ResponseEntity.ok("Has devuelto el libro correctamente. ¡Esperamos que hayas disfrutado de la lectura!");
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Parece que no has realizado el préstamo de este libro. Intentálo de nuevo.");
         }
+    } else {
+        return ResponseEntity.status(404).body("Tu nombre de Usuario, el título del libro o tu teléfono no son correctos. Te rogamos que introduzcas los datos de nuevo");
     }
+}
 }

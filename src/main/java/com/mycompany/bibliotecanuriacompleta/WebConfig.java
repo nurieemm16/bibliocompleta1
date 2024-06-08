@@ -19,8 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     
-    //Primera forma de  conectar back con front
-    /*@Bean
+   @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
@@ -28,11 +27,11 @@ public class WebConfig implements WebMvcConfigurer {
                 registry.addMapping("/**").allowedOrigins("http://localhost:8080");
             }
         };
-    }*/
+    }
     
     
      //Segunda forma de conectar back con front
-     @Override
+    /* @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")//aquí añadimos todo
                 .allowedOrigins("http://localhost:8080") //esto es la url
@@ -40,6 +39,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600); //tiempo máximo que correrá
-    }
+    }*/
     
 }
