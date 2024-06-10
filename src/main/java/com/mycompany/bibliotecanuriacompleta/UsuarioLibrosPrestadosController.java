@@ -92,14 +92,14 @@ public class UsuarioLibrosPrestadosController {
 
   //Eliminar un préstamo:http://localhost:8080/usuarios/prestamos/devolver
 
- @DeleteMapping("/devolver")
-public ResponseEntity<String> deleteUsuarioLibrosPrestados(@RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
+ @PutMapping("/devolver")
+public ResponseEntity<String> updateUsuarioLibrosPrestados(@RequestBody UsuarioLibrosPrestadosDTO usuarioLibrosPrestadosDTO) {
     Usuario usuario = usuarioRepository.findByNombreUsuarioAndTelefono(usuarioLibrosPrestadosDTO.getNombre_usuario(), usuarioLibrosPrestadosDTO.getTelefono());
     Libro libro = libroRepository.findByTitulo(usuarioLibrosPrestadosDTO.getTitulo());
 
     if (usuario != null && libro != null) {
         try {
-            usuarioLibrosPrestadosRepository.deleteUsuarioLibrosPrestados(
+            usuarioLibrosPrestadosRepository.updateUsuarioLibrosPrestados(
                     usuarioLibrosPrestadosDTO.getNombre_usuario(),
                     usuarioLibrosPrestadosDTO.getTitulo(),
                     usuarioLibrosPrestadosDTO.getTelefono(),
@@ -112,10 +112,10 @@ public ResponseEntity<String> deleteUsuarioLibrosPrestados(@RequestBody UsuarioL
 
             return ResponseEntity.ok("Has devuelto el libro correctamente. ¡Esperamos que hayas disfrutado de la lectura!");
         } catch (Exception e) {
-            return ResponseEntity.status(404).body("Parece que no has realizado el préstamo de este libro. Intentálo de nuevo.");
+            return ResponseEntity.status(404).body("Parece que no has realizado el préstamo de este libro. Inténtalo de nuevo.");
         }
     } else {
-        return ResponseEntity.status(404).body("Tu nombre de usuario, el título del libro o tu teléfono no son correctos. Te rogamos que introduzcas los datos de nuevo");
+        return ResponseEntity.status(404).body("Tu nombre de usuario, el título del libro o tu teléfono no son correctos. Te rogamos que introduzcas los datos de nuevo.");
     }
 }
 }

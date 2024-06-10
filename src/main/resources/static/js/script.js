@@ -104,7 +104,7 @@ async function devolverLibro(event) {
     const fecha_devolucion = document.getElementById('fecha_devolucion').value;
 
     const response = await fetch('/usuarios/prestamos/devolver', {
-        method: 'DELETE',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -119,6 +119,7 @@ async function devolverLibro(event) {
     const message = await response.text();
     alert(message);
 }
+
 
 
 //Función para publicar un Libro utilizando el método POST
