@@ -32,11 +32,10 @@ public interface UsuarioLibrosPrestadosRepository extends JpaRepository<UsuarioL
 
 @Modifying
 @Transactional
-@Query(value = "DELETE FROM usuario_librosprestados " +
+@Query(value = "UPDATE usuario_librosprestados SET fecha_devolucion = :fecha_devolucion " +
                "WHERE id_usuario = (SELECT id_usuario FROM usuario WHERE nombre_usuario = :nombre_usuario AND telefono = :telefono) " +
-               "AND id_libro = (SELECT id_libro FROM libro WHERE titulo = :titulo) " +
-               "AND fecha_devolucion = :fecha_devolucion", nativeQuery = true)
-void deleteUsuarioLibrosPrestados(@Param("nombre_usuario") String nombre_usuario, 
+               "AND id_libro = (SELECT id_libro FROM libro WHERE titulo = :titulo)", nativeQuery = true)
+void updateUsuarioLibrosPrestados(@Param("nombre_usuario") String nombre_usuario, 
                                   @Param("titulo") String titulo,
                                   @Param("telefono") Integer telefono,
                                   @Param("fecha_devolucion") Date fecha_devolucion);

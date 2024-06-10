@@ -104,7 +104,7 @@ async function devolverLibro(event) {
     const fecha_devolucion = document.getElementById('fecha_devolucion').value;
 
     const response = await fetch('/usuarios/prestamos/devolver', {
-        method: 'DELETE',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
