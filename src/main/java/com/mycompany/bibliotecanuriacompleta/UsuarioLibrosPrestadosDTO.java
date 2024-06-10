@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+//Esta es una clase DTO (Data Transfer Object) que se utiliza para transferir datos entre diferentes capas de la aplicación, como entre la capa de presentación y la capa de negocio.  Utilizado para transportar datos entre diferentes partes de la aplicación sin involucrarse directamente con la persistencia.
+
 public class UsuarioLibrosPrestadosDTO {
     private int id_usuario;
     private String nombre_usuario;

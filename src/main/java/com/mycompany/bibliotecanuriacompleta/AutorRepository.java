@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 public interface AutorRepository extends JpaRepository<Autor, Integer> {
 
-    // Puedes añadir métodos personalizados aquí, si es necesario
+    // Aquí se pueden añadir métodos personalizados, si fuera necesario
 }

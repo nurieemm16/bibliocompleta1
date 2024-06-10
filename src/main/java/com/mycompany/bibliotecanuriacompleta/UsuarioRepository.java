@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     Usuario findByNombreUsuario(String nombreUsuario);
-    Usuario findByNombreUsuarioAndTelefono(String nombreUsuario, Integer telefono);
+    Usuario findByNombreUsuarioAndTelefono(String nombreUsuario, Integer telefono); //esto servirá para el método de comprobar que el teléfono corresponde con su Usuario
    
 }

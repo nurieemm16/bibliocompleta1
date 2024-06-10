@@ -5,18 +5,21 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+//Representa la tabla usuario_librosprestados en la base de datos y define la estructura de los datos almacenados.
+
+
 @Entity
 @Table(name = "usuario_librosprestados")
-@IdClass(UsuarioLibrosPrestamoAuxiliar.class)
-public class UsuarioLibrosPrestados implements Serializable {
+@IdClass(UsuarioLibrosPrestamoAuxiliar.class) // Esta clase utiliza @IdClass(UsuarioLibrosPrestamoAuxiliar.class) para definir una clave compuesta. Es decir, la combinación de id_usuario e id_libro forman la clave primaria.
+public class UsuarioLibrosPrestados implements Serializable { // para permitir que sus instancias puedan ser convertidas a un flujo de bytes, lo cual es útil para la persistencia y la transmisión a través de la red.
 
     @Id
-    private Integer id_usuario;
+    private Integer id_usuario; //Marcamos cómo clave primaria
 
     private String nombre_usuario;
     
     @Id
-    private Integer id_libro;
+    private Integer id_libro; //Marcamos cómo clave primaria
 
     private String titulo;
 

@@ -20,10 +20,15 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    
+    //Obtenemos todos los usuarios
+    
     @GetMapping
     public List<Usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
     }
+    
+     //Obtenemos un usuario por su ID
 
     @GetMapping("/{id_usuario}")
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id_usuario) {
@@ -34,12 +39,18 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
+    
+    
+     //Creamos un nuevo usuario
 
     @PostMapping
     public Usuario createUsuario(@RequestBody Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
+    
+     //Modificamos los datos de un Usuario
+    
     @PutMapping("/{id_usuario}")
     public ResponseEntity<Usuario> updateUsuario(@PathVariable Integer id_usuario, @RequestBody Usuario usuarioDetails) {
         Optional<Usuario> usuario = usuarioRepository.findById(id_usuario);
@@ -55,6 +66,8 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
+    
+    //Borramos un Usuario
 
     @DeleteMapping("/{id_usuario}")
     public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id_usuario) {

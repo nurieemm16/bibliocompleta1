@@ -24,13 +24,18 @@ public class AutorController {
     @Autowired
     private AutorRepository autorRepository;
 //URL: http://localhost:8080/autores
-    // GET all authors
+    
+// GET todos los autores
+        
     @GetMapping
  public List<Autor> getAllAutores() {
     return autorRepository.findAll();
 }
 //http://localhost:8080/autores/{id}
-    // GET author by ID
+   
+
+
+ // GET autor por el ID
     @GetMapping("{id}")
     public ResponseEntity<Autor> getAutorById(@PathVariable Integer id) {
         Optional<Autor> autor = autorRepository.findById(id);
@@ -43,7 +48,7 @@ public class AutorController {
 
     
     //http://localhost:8080/autores
-    // POST create a new author
+    // POST crea un nuevo autor
     @PostMapping
     public Autor createAutor(@RequestBody Autor autor) {
         return autorRepository.save(autor);
@@ -51,7 +56,7 @@ public class AutorController {
 
     
     //http://localhost:8080/autores/{id}
-    // PUT update an author
+    //Cambia datos autor
     @PutMapping("{id}")
     public ResponseEntity<Autor> updateAutor(@PathVariable Integer id, @RequestBody Autor autorDetails) {
         Optional<Autor> autor = autorRepository.findById(id);
@@ -67,7 +72,7 @@ public class AutorController {
         }
     }
 
-    
+    //Borra autor por ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAutor(@PathVariable Integer id) {
         Optional<Autor> autor = autorRepository.findById(id);

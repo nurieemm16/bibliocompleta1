@@ -3,10 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.bibliotecanuriacompleta;
-// Importa las anotaciones y clases necesarias de Spring Framework
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
@@ -27,9 +33,9 @@ public class LibroController {
     @Autowired
     private LibroRepository libroRepository;
 
-    // Manage GET request on /libros and return a list of all books
-    /* 
   
+    /* 
+    Para obtener todos los libros
     GET http://localhost:8080/libros
     */
     @GetMapping
@@ -58,9 +64,9 @@ public class LibroController {
     // Añade libro
 
     @PostMapping
-    public Libro createLibro(@RequestBody Libro libro) {
-        // Guarda la nueva persona en la base de datos y la devuelve en la respuesta
-        return libroRepository.save(libro);
+    public ResponseEntity<String> createLibro(@RequestBody Libro libro) {
+        libroRepository.save(libro);
+        return new ResponseEntity<>("Libro publicado correctamente. ¡Muchas gracias por dar a conocer tu obra en nuestra biblioteca!", HttpStatus.CREATED);
     }
     
     
@@ -87,7 +93,7 @@ public ResponseEntity<Libro> updateDispoLibro(@PathVariable Integer id) {
 
 
     // http://localhost:8080/libros/1
-    /* {
+    /* Cambia las características del libro {
     "titulo": "Nuevo Titulo",
     "autor": "Nuevo Autor"
     }     */
@@ -110,25 +116,8 @@ public ResponseEntity<Libro> updateDispoLibro(@PathVariable Integer id) {
     }
     
     
-    // Devuelve cuantos libros hay
-    /* 
-    Ruta Postman:
-    GET http://localhost:8080/libros/countlibros
-    */
-    @GetMapping ("countlibros")
-    public ResponseEntity<Integer>countLibros() {
-        // Llama al método findAll() del repositorio para obtener todas las personas
-        Integer count=libroRepository.countLibros();
-        System.out.println(count);
-        
-        if (count != null) {
-            return ResponseEntity.ok(count);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
-    }
-    
-     // Borra Libros
+
+   // Borra Libros
     
      @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteLibro(@PathVariable int id) {

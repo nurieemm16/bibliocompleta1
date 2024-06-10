@@ -56,11 +56,6 @@ a:hover {
 
 /*MAIN*/
 
-
-button{
-    padding: 20px;
-    border-radius: 30px;
-}
 .libros {
     margin-top: 5rem;
     display: flex;
@@ -71,7 +66,7 @@ button{
 
 .titulo {
     font-size: 3em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     margin-top: 3rem;
@@ -86,22 +81,83 @@ button{
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    color:rgb(224, 132, 98);
+    color: rgb(83, 53, 31);
+
+}
+
+button{
+     padding: 20px;
+     margin-bottom: 3rem;
+    border-radius: 30px;
+    background-color: rgb(224, 132, 98);
+    color: rgb(247, 227, 193);
+    
 }
 
 
-#libroshow{
-   margin: 2rem;
-   padding:2rem;
-  margin-bottom: 5rem;
-  flex-direction: column;
+
+.libroshow {
+     
+        display: none;
+            margin: 2rem;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            flex-direction: column;
+            line-height: 2em;
+            font-family: 'Courier New', Courier, monospace;
 }
+
+
+
+
+#formularioPrestar {
+     display: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 3em;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+
+#formularioDevolver{
+     display: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 3em;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+#formularioPublicarLibro{
+     display: none;
+        margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            line-height: 3em;
+            font-family: 'Courier New', Courier, monospace;
+    
+}
+
+
+
+
 /*FOOTER*/
 
 
 footer {
     padding: 1rem;
-    
     background-color: rgb(71, 124, 94);
     color: bisque;
     display: flex;

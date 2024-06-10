@@ -4,11 +4,8 @@
  */
 package com.mycompany.bibliotecanuriacompleta;
 import javax.persistence.*;
-import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import java.util.Date;

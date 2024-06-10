@@ -20,8 +20,7 @@ public interface LibroRepository extends JpaRepository<Libro, Integer> {
     
   /* Aquí añadimos nuevos métodos y peticiones asociadas que no existen en JPA*/
     
-    @Query ("SELECT COUNT(*) AS countlibros FROM Libro")
-    Integer countLibros();
+  
 
     public Libro findByTitulo(String titulo);
     

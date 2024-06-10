@@ -7,6 +7,7 @@ import java.util.Objects;
  *
  * @author nuria
  */
+//Esta clase se usa como una clave primaria compuesta para la entidad UsuarioLibrosPrestados. Es decir, representa una combinación de id_usuario y id_libro. Define la clave primaria compuesta para UsuarioLibrosPrestados, permitiendo que la combinación de id_usuario e id_libro sea única en la tabla.
 public class UsuarioLibrosPrestamoAuxiliar implements Serializable {
 
     private Integer id_usuario;
@@ -39,7 +40,7 @@ public class UsuarioLibrosPrestamoAuxiliar implements Serializable {
         this.id_libro = id_libro;
     }
 
-    // Sobrescribir equals y hashCode
+    // Métodos equals y hashCode sobrescritos para asegurar que dos instancias de esta clase se consideren iguales si tienen los mismos valores en id_usuario e id_libro.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
