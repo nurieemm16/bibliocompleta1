@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: bisque;
+    font-family: 'calibri';
+
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: wheat;
+}
+
+
+/*ENCABEZADO*/
+
+.encabezado {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    background-color: rgb(71, 124, 94);
+}
+
+.imghome {
+    padding: 0.25rem;
+    margin: 0.25rem;
+    width: 200px;
+    height: 150px;
+}
+
+.quote {
+    margin-top: 2.5rem;
+    color: moccasin;
+    font-size: medium;
+    text-align: center;
+
+}
+
+
+/*MAIN*/
+
+
+
+.usuarioAlta{
+    font-size: 3em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    color: rgb(83, 53, 31);
+
+}
+
+
+
+button{
+     padding: 20px;
+     margin-bottom: 3rem;
+    border-radius: 30px;
+    background-color: rgb(224, 132, 98);
+    color: rgb(247, 227, 193);
+    
+}
+
+#formularioAlta{
+     display: none;
+        margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            line-height: 3em;
+            font-family: 'Courier New', Courier, monospace;
+    
+}
+
+
+
+
+/*FOOTER*/
+
+
+footer {
+    padding: 1rem;
+    background-color: rgb(71, 124, 94);
+    color: bisque;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
