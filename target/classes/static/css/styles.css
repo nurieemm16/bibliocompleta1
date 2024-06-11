@@ -28,6 +28,9 @@ a:hover {
 }
 
 
+
+
+
 /*ENCABEZADO*/
 
 .encabezado {
@@ -57,7 +60,7 @@ a:hover {
 
 .titulo {
     font-size: 4em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:rol;
     display: flex;
     justify-content: center;
     margin-top: 3rem;

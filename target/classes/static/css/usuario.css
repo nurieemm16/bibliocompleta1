@@ -12,19 +12,19 @@ body {
 }
 
 a {
-    color: black;
+    color: rgb(83, 53, 31);
     text-decoration: none;
 }
 
 
 a:visited {
-    color: white;
+    color: rgb(224, 132, 98);
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-    color: wheat;
+    color:  rgb(83, 53, 31);
 }
 
 
@@ -56,10 +56,19 @@ a:hover {
 
 /*MAIN*/
 
+.titulo {
+    font-size: 3em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    color: rgb(83, 53, 31);
 
+}
 
 .usuarioAlta{
-    font-size: 3em;
+    font-size: 1.5em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
@@ -80,8 +89,24 @@ button{
     
 }
 
+.cuerpo{
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+    
+}
+
+
+.estanteria{
+    width: 700px;
+    height: 600px;
+}
+
 #formularioAlta{
-     display: none;
+     
         margin-top: 2rem;
             margin-bottom: 2rem;
             padding: 2rem;
@@ -93,6 +118,15 @@ button{
     
 }
 
+
+.usuarioRegistrado{
+    margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+}
 
 
 

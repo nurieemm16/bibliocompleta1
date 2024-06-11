@@ -150,3 +150,36 @@ async function publicarLibro(event) {
     const message = await response.text();
     alert(message);
 }
+
+ function mostrarFormularioAlta() {
+     document.getElementById('formularioAlta').style.display = 'flex';
+   
+}
+async function darAlta(event) {
+    event.preventDefault();
+    
+    const telefono = document.getElementById('telefono').value;
+    const correo = document.getElementById('correo').value;
+    const fecha_alta = document.getElementById('fecha_alta').value;
+    const fecha_baja = null;
+    const nombre_usuario = document.getElementById('nombre_usuario').value;
+
+    const response = await fetch('/usuarios', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            
+            telefono,
+            correo,
+            fecha_alta,
+            fecha_baja,
+            nombre_usuario
+            
+        })
+    });
+
+    const message = await response.text();
+    alert(message);
+}

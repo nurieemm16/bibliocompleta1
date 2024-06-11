@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.http.HttpStatus;
 
 /**
  *
@@ -44,11 +45,13 @@ public class UsuarioController {
      //Creamos un nuevo usuario
 
     @PostMapping
-    public Usuario createUsuario(@RequestBody Usuario usuario) {
-        return usuarioRepository.save(usuario);
+    public ResponseEntity<String> createUsuario(@RequestBody Usuario usuario) {
+        usuarioRepository.save(usuario);
+        return new ResponseEntity<>("Te has inscrito correctamente en nuestra biblioteca. ¡A disfrutar de la lectura!", HttpStatus.CREATED);
     }
-
     
+    
+   
      //Modificamos los datos de un Usuario
     
     @PutMapping("/{id_usuario}")
