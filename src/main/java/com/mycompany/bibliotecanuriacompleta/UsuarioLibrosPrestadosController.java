@@ -70,7 +70,7 @@ public class UsuarioLibrosPrestadosController {
 
             return ResponseEntity.ok("Has cogido prestado el libro correctamente. ¡Que disfrutes de la lectura!");
         } else {
-            return ResponseEntity.status(404).body("Tu nombre de usuario, el título del libro o tu teléfono no son correctos. Te rogamos que introduzcas los datos de nuevo");
+            return ResponseEntity.status(404).body("¡Ups! Parece que algún dato que has introducido no es correcto. Te rogamos que introduzcas tus datos de nuevo. También asegúrate de que el libro que quieras coger prestado esté disponible, vas a poder ver su disponibilidad en el catálogo de libros.");
         }
     }
  

@@ -102,6 +102,13 @@ button {
 
 }
 
+.formularios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .botonactividad {
     padding: 20px;
     margin-bottom: 3rem;
