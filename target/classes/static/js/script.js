@@ -183,3 +183,39 @@ async function darAlta(event) {
     const message = await response.text();
     alert(message);
 }
+
+
+
+
+ function mostrarFormularioAltaAutor() {
+     document.getElementById('formularioAltaAutor').style.display = 'flex';
+   
+}
+async function darAltaAutor(event) {
+    event.preventDefault();
+    const nombre_autor = document.getElementById('nombre_autor').value;
+    const telefono_autor = document.getElementById('telefono_autor').value;
+    const correo_autor = document.getElementById('correo_autor').value;
+    const fecha_alta_autor = document.getElementById('fecha_alta_autor').value;
+    
+    
+
+    const response = await fetch('/autores', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nombre_autor,
+            telefono_autor,
+            correo_autor,
+            fecha_alta_autor
+    
+            
+           
+            })
+    });
+
+    const message = await response.text();
+    alert(message);
+}

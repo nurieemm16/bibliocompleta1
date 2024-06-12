@@ -10,6 +10,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Códex-Arús</title>
     <link rel="stylesheet" href="../css/libros.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -55,67 +62,95 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div class="libroshow" id="libroshow">
             <div id="catalogoLibros">
                 <!-- Aquí se insertarán los detalles de los libros con el get desde la base de datos-->
-               
+
             </div>
             <button id="cerrarCatalogo">CERRAR CATÁLOGO</button>
         </div>
         <br>
-        
-        <div id="formularioPrestar" style="display:none;">
-            <form onsubmit="prestarLibro(event)">
-                <label for="nombre_usuario_prestar">Nombre Usuario:</label>
-                <input type="text" id="nombre_usuario_prestar" name="nombre_usuario_prestar" required><br>
+        <div class="formularios">
+            <div id="formularioPrestar" style="display:none;">
+                <form onsubmit="prestarLibro(event)">
 
-                <label for="titulo_prestar">Título del Libro:</label>
-                <input type="text" id="titulo_prestar" name="titulo_prestar" required><br>
+                    <div class="form-group">
+                        <label for="nombre_usuario_prestar">Nombre y Apellidos:</label>
+                        <input type="text" id="nombre_usuario_prestar" name="nombre_usuario_prestar" required><br>
+                    </div>
 
-                <label for="telefono_prestar">Teléfono:</label>
-                <input type="text" id="telefono_prestar" name="telefono_prestar" required><br>
+                    <div class="form-group">
+                        <label for="titulo_prestar">Título del Libro:</label>
+                        <input type="text" id="titulo_prestar" name="titulo_prestar" required><br>
+                    </div>
 
-                <label for="fecha_prestamo">Fecha de Préstamo:</label>
-                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required><br>
+                    <div class="form-group">
+                        <label for="telefono_prestar">Teléfono:</label>
+                        <input type="text" id="telefono_prestar" name="telefono_prestar" required><br>
+                    </div>
 
-                <button type="submit">PRESTAR LIBRO</button>
-            </form>
+                    <div class="form-group">
+                        <label for="fecha_prestamo">Fecha de Préstamo:</label>
+                        <input type="date" id="fecha_prestamo" name="fecha_prestamo" required><br>
+                    </div>
+
+                    <button class="botonactividad" type="submit">PRESTAR LIBRO</button>
+                </form>
+            </div>
+
+
+            <br>
+            <div id="formularioDevolver" style="display:none;">
+                <form onsubmit="devolverLibro(event)">
+
+                    <div class="form-group">
+                        <label for="nombre_usuario_devolver">Nombre y Apellidos:</label>
+                        <input type="text" id="nombre_usuario_devolver" name="nombre_usuario_devolver" required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="titulo_devolver">Título del Libro:</label>
+                        <input type="text" id="titulo_devolver" name="titulo_devolver" required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono_devolver">Teléfono:</label>
+                        <input type="text" id="telefono_devolver" name="telefono_devolver" required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha_devolucion">Fecha Devolución:</label>
+                        <input type="date" id="fecha_devolucion" name="fecha_devolucion" required><br>
+                    </div>
+
+                    <button class="botonactividad" type="submit">DEVOLVER LIBRO</button>
+                </form>
+            </div>
+
+
+            <div id="formularioPublicarLibro" style="display:none;">
+                <form onsubmit="publicarLibro(event)">
+                    <div class="form-group">
+                        <label for="titulo">Título del libro:</label>
+                        <input type="text" id="titulo" name="titulo" required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="autor">Autor del libro:</label>
+                        <input type="text" id="autor" name="autor" required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha_publicacion">Fecha Publicación:</label>
+                        <input type="date" id="fecha_publicacion" name="fecha_publicacion" required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genero">Género Literario:</label>
+                        <input type="text" id="genero" name="genero" required><br>
+                    </div>
+
+                    <button class="botonactividad" type="submit">PUBLICAR LIBRO</button>
+                </form>
+            </div>
         </div>
-        <br>
-        <div id="formularioDevolver" style="display:none;">
-            <form onsubmit="devolverLibro(event)">
-                <label for="nombre_usuario_devolver">Nombre Usuario:</label>
-                <input type="text" id="nombre_usuario_devolver" name="nombre_usuario_devolver" required><br>
-
-                <label for="titulo_devolver">Título del Libro:</label>
-                <input type="text" id="titulo_devolver" name="titulo_devolver" required><br>
-
-                <label for="telefono_devolver">Teléfono:</label>
-                <input type="text" id="telefono_devolver" name="telefono_devolver" required><br>
-
-                <label for="fecha_devolucion">Fecha de Devolución:</label>
-                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required><br>
-
-                <button type="submit">DEVOLVER LIBRO</button>
-            </form>
-        </div>
-
-
-        <div id="formularioPublicarLibro" style="display:none;">
-            <form onsubmit="publicarLibro(event)" >
-                <label for="titulo">Título del libro:</label>
-                <input type="text" id="titulo" name="titulo" required><br>
-
-                <label for="autor">Autor del libro:</label>
-                <input type="text" id="autor" name="autor" required><br>
-                
-                <label for="fecha_publicacion">Fecha Publicación:</label>
-                <input type="date" id="fecha_publicacion" name="fecha_publicacion" required><br>
-                
-                <label for="genero">Género Literario:</label>
-                <input type="text" id="genero" name="genero" required><br>
-
-               <button type="submit">PUBLICAR LIBRO</button>
-            </form>
-        </div>
-
     </main>
     <!--FOOTER-->
     <footer>

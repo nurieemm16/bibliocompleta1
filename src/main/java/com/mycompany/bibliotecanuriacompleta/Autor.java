@@ -34,14 +34,14 @@ public class Autor {
     @Column(name = "nombre_autor")
     private String nombre_autor;
     
-     @Column(name = "telefono")
-    private Integer telefono;
+    @Column(name = "telefono")
+    private Integer telefono_autor;
      
-     @Column(name = "correo")
-    private String correo;
+    @Column(name = "correo")
+    private String correo_autor;
      
      @Column(name = "fecha_alta")
-    private Date fecha_alta;
+    private Date fecha_alta_autor;
 
     public Integer getId_autor() {
         return id_autor;
@@ -51,16 +51,16 @@ public class Autor {
         return nombre_autor;
     }
 
-    public Integer getTelefono() {
-        return telefono;
+    public Integer getTelefono_autor() {
+        return telefono_autor;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getCorreo_autor() {
+        return correo_autor;
     }
 
-    public Date getFecha_alta() {
-        return fecha_alta;
+    public Date getFecha_alta_autor() {
+        return fecha_alta_autor;
     }
 
     public void setId_autor(Integer id_autor) {
@@ -71,19 +71,19 @@ public class Autor {
         this.nombre_autor = nombre_autor;
     }
 
-    public void setTelefono(Integer telefono) {
-        this.telefono = telefono;
+    public void setTelefono_autor(Integer telefono_autor) {
+        this.telefono_autor = telefono_autor;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCorreo_autor(String correo_autor) {
+        this.correo_autor = correo_autor;
     }
 
-    public void setFecha_alta(Date fecha_alta) {
-        this.fecha_alta = fecha_alta;
+    public void setFecha_alta_autor(Date fecha_alta_autor) {
+        this.fecha_alta_autor = fecha_alta_autor;
     }
 
-  
+   
 
   
  }

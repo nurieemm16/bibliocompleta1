@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.http.HttpStatus;
 
 /**
  *
@@ -46,14 +47,13 @@ public class AutorController {
         }
     }
 
-    
-    //http://localhost:8080/autores
-    // POST crea un nuevo autor
-    @PostMapping
-    public Autor createAutor(@RequestBody Autor autor) {
-        return autorRepository.save(autor);
+     @PostMapping
+    public ResponseEntity<String> createAutor(@RequestBody Autor autor) {
+        autorRepository.save(autor);
+        return new ResponseEntity<>("Te has inscrito correctamente como autor/a en nuestra biblioteca. ¡Gracias por publicar tus obras en Códex-Arús!", HttpStatus.CREATED);
     }
 
+  /*
     
     //http://localhost:8080/autores/{id}
     //Cambia datos autor
@@ -83,5 +83,5 @@ public class AutorController {
             return ResponseEntity.notFound().build();
         }
     }
-    
-}
+    */
+} 

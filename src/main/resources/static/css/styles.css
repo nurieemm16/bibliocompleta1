@@ -1,13 +1,13 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    
 }
 
 
 body {
     background-color: bisque;
-    font-family: 'calibri';
+    
 
 }
 
@@ -23,12 +23,16 @@ a:visited {
 }
 
 a:hover {
-    text-decoration: underline;
     color: wheat;
+    text-decoration: none;
+    
 }
 
 
-
+.inter  {
+  font-family: "Inter", sans-serif;
+  
+}
 
 
 /*ENCABEZADO*/
@@ -70,7 +74,7 @@ a:hover {
 }
 
 .bienvenida {
-    font-family: 'calibri';
+    font-family: 'Inter';
     display: flex;
     justify-content: center;
     margin-top: 2rem;
@@ -168,7 +172,7 @@ a:hover {
 
 
 .horario {
-
+    font-family: 'Inter';
     margin-bottom: 7rem;
     display: flex;
     flex-direction: column;

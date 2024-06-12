@@ -1,13 +1,13 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+
 }
 
 
 body {
     background-color: bisque;
-    font-family: 'calibri';
+
 
 }
 
@@ -23,7 +23,7 @@ a:visited {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: wheat;
 }
 
@@ -56,17 +56,15 @@ a:hover {
 
 /*MAIN*/
 
-.libros {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .titulo {
     font-size: 3em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: rol;
     display: flex;
     justify-content: center;
     margin-top: 3rem;
@@ -76,78 +74,131 @@ a:hover {
 }
 
 .actividadlibro {
-    font-family: 'calibri';
+    font-family: "Roboto";
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     color: rgb(83, 53, 31);
 
 }
 
-button{
-     padding: 20px;
-     margin-bottom: 3rem;
+.libros {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+/*Todos los botones en general*/
+button {
+    padding: 20px;
+    margin-bottom: 3rem;
     border-radius: 30px;
     background-color: rgb(224, 132, 98);
     color: rgb(247, 227, 193);
-    
+    font-family: "Roboto";
+
+}
+
+.botonactividad {
+    padding: 20px;
+    margin-bottom: 3rem;
+    margin-left: 12rem;
+    border-radius: 30px;
+    background-color: rgb(224, 132, 98);
+    color: rgb(247, 227, 193);
+    font-family: "Roboto";
+
 }
 
 
 
 .libroshow {
-     
-        display: none;
-            margin: 2rem;
-            padding: 2rem;
-            margin-bottom: 4rem;
-            flex-direction: column;
-            line-height: 2em;
-            font-family: 'Courier New', Courier, monospace;
+
+    display: none;
+    margin: 1rem;
+    padding: 1rem;
+    margin-left: 4rem;
+    margin-bottom: 4rem;
+    flex-direction: column;
+    line-height: 2em;
+    font-family: "Roboto";
 }
 
 
 
 
 #formularioPrestar {
-     display: none;
-    margin-top: 2rem;
+    display: none;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-    padding: 2rem;
+    margin-left: 4rem;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     line-height: 3em;
-    font-family: 'Courier New', Courier, monospace;
-    
+    font-family: "Roboto";
+
 }
 
 
-#formularioDevolver{
-     display: none;
-    margin-top: 2rem;
+#formularioDevolver {
+    display: none;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-    padding: 2rem;
+    margin-left: 4rem;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     line-height: 3em;
-    font-family: 'Courier New', Courier, monospace;
-    
+    font-family: "Roboto";
+
 }
 
-#formularioPublicarLibro{
-     display: none;
-        margin-top: 2rem;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            line-height: 3em;
-            font-family: 'Courier New', Courier, monospace;
-    
+#formularioPublicarLibro {
+    display: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 4rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 3em;
+    font-family: "Roboto";
+
+}
+
+form {
+
+    margin: 30px 0;
+
+}
+
+
+input {
+    border: none;
+    background: beige;
+
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form-group input {
+    width: 300px;
 }
 
 
