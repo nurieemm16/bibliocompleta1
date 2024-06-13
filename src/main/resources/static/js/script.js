@@ -219,3 +219,36 @@ async function darAltaAutor(event) {
     const message = await response.text();
     alert(message);
 }
+
+
+function actividadShow() {
+            fetch('http://localhost:8080/actividades')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No funciona el get con las actividades' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(actividades=> {
+                    const actividadBiblio = document.getElementById('actividadBiblio');
+                    actividadBiblio.innerHTML = actividades.map(actividad => `
+                        <div>
+                            <h3>ACTIVIDAD:</h3>
+                            <p>${actividad.actividad}</p>
+                            <h3>FECHA ACTIVIDAD:</h3>
+                            <p>${actividad.fecha_actividad}</p>
+                           
+                          
+                        </div>
+                        <br>
+                    `).join('');
+        document.getElementById('actividadShow').style.display = 'flex'; 
+                })
+                .catch(error => console.error('Error actividades:', error));
+
+            
+        }
+        
+        
+        
+        
