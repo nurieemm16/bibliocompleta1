@@ -1,13 +1,15 @@
 * {
     padding: 0;
     margin: 0;
-    
+    box-sizing: border-box;
+
 }
 
 
 body {
     background-color: bisque;
-    
+    font-family: 'Inter', sans-serif;
+
 
 }
 
@@ -25,24 +27,26 @@ a:visited {
 a:hover {
     color: wheat;
     text-decoration: none;
-    
+
 }
 
 
-.inter  {
-  font-family: "Inter", sans-serif;
-  
+.inter {
+    font-family: "Inter", sans-serif;
+
 }
 
 
 /*ENCABEZADO*/
 
+/*ENCABEZADO*/
 .encabezado {
     padding: 1rem;
     display: flex;
     justify-content: space-around;
-    align-content: center;
+    align-items: center;
     background-color: rgb(71, 124, 94);
+
 }
 
 .imghome {
@@ -53,37 +57,35 @@ a:hover {
 }
 
 .quote {
-    margin-top: 2.5rem;
+    margin: 1rem;
     color: moccasin;
     font-size: medium;
     text-align: center;
-
 }
 
 /*MAIN*/
 
 .titulo {
-    font-size: 4em;
-    font-family:rol;
+    font-size: 2.5em;
+    font-family: rol;
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
-    margin-bottom: 4rem;
+    margin: 3rem 0;
     color: rgb(83, 53, 31);
 
 }
 
 .bienvenida {
+    font-size: 1.2em;
     font-family: 'Inter';
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     color: rgb(83, 53, 31);
 }
 
 .menu {
-    margin: 1 1rem;
+    margin: 2 0rem;
     padding: 1rem;
     display: flex;
     justify-content: space-around;
@@ -93,13 +95,15 @@ a:hover {
 }
 
 .enlace {
-    width: 30%;
+    width: 80%;
+    max-width: 300px;
     padding: 20px;
-    margin: 25px;
+    margin: 10px;
     border: 1px solid black;
     border-radius: 10px;
     background-color: rgb(224, 132, 98);
-    ;
+    text-align: center;
+
 
 }
 
@@ -196,4 +200,120 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    .encabezado {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        background-color: rgb(71, 124, 94);
+
+    }
+    
+    .bienvenida {
+        font-size: 0.75em;
+        font-family: 'Inter';
+        display: flex;
+        justify-content: center;
+        color: rgb(83, 53, 31);
+    }
+
+    .imghome {
+        display: none;
+    }
+
+    .quote {
+        font-size: small;
+    }
+
+    .titulo {
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    .multimedia {
+        display: none;
+    }
+
+    .horario {
+        font-family: 'Inter';
+        margin-bottom: 5rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        color: rgb(83, 53, 31);
+    }
+
+
+    @media (max-width: 480px) {
+        .encabezado {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            background-color: rgb(71, 124, 94);
+
+        }
+
+        .imghome {
+            display: none;
+        }
+
+        .quote {
+            font-size: x-small;
+        }
+
+        .titulo {
+            font-size: 1.2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bienvenida {
+            font-size: 0.75em;
+            font-family: 'Inter';
+            display: flex;
+            justify-content: center;
+            color: rgb(83, 53, 31);
+        }
+    
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .multimedia {
+            display: none;
+        }
+
+        .horario {
+            font-family: 'Inter';
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            color: rgb(83, 53, 31);
+        }
+
+        footer {
+            font-size: small;
+        }
+    }
 }
