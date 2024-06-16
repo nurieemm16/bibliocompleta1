@@ -1,5 +1,7 @@
 package com.mycompany.bibliotecanuriacompleta;
 
+//Autora página web: Núria Marzo Marquès
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

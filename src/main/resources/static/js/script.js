@@ -1,4 +1,4 @@
-
+//Autora: Núria Marzo Marquès
   // Función para mostrar el catálogo de libros de la biblioteca usando el método GET
 function catalogoShow() {
             fetch('http://localhost:8080/libros')
