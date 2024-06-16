@@ -1,2 +1,1 @@
-# bibliocompleta1
-bibliocompleta1
+Para poder ver la página web, debes seguir los siguientes pasos: primero abrir la base de datos de bibliotecacompleta en MySQL para ver los datos de la biblioteca, seguidamente abrir el proyecto biblitoecacompletanuria en NetBeans, darle al botón de run, y ya, por último, ir al navegador para la página web en http://localhost:8080/.
